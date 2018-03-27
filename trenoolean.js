@@ -6,8 +6,8 @@ for (var i = 0; i < 10; i++) {
     'numTreno' : randomNum(),
     'stazionePartenza' : 'Roma',
     'stazioneArrivo' : 'Firenze',
-    'durataViaggioMin' : Math.floor(Math.random()*240)+150)
-    'orarioPartenza' : casuale(5, 19),
+    'durataViaggioMin' : randomDurataViaggio(),
+    'orarioPartenza' : orarioPartenza(),
     'postiLiberi' : postiLiberi(),
   }
   treniRoma.push(nuovo_treno)
@@ -19,8 +19,8 @@ for (var i = 0; i < 10; i++) {
       'numTreno' : randomNum(),
       'stazionePartenza' : 'Milano',
       'stazioneArrivo' : 'Roma',
-      'durataViaggioMin' : Math.floor(Math.random()*240)+150)
-      'orarioPartenza' : casuale(5, 19),
+      'durataViaggioMin' : randomDurataViaggio(),
+      'orarioPartenza' : orarioPartenza(),
       'postiLiberi' : postiLiberi(),
     }
     treniMilano.push(nuovo_treno)
@@ -38,6 +38,15 @@ for (var i = 0; i < treniRoma.length; i++) {
 console.log(partePrima)
 
 
+function orarioPartenza() {
+  var orario_casuale = Math.floor((Math.random()*24)+1) + (":") + (Math.floor(Math.random()*59));
+  return orario_casuale
+}
+
+function randomDurataViaggio() {
+  var durata = Math.floor((Math.random()*240)+150)
+  return durata
+}
 
 
   function randomNum() {
@@ -49,8 +58,8 @@ console.log(partePrima)
   }
 
   function postiLiberi() {
-      var postiTotali = Math.floor(Math.random()*500)+300)
-      var postiPrenotati = Math.floor(Math.random()*postiTotali)+1)
+      var postiTotali = Math.floor((Math.random()*500)+300)
+      var postiPrenotati = Math.floor((Math.random()*postiTotali)+1)
       var postiDisponibili = postiTotali - postiPrenotati
     return postiDisponibili
   }
